@@ -10,7 +10,7 @@ namespace Lab5
     {
         static void Main(string[] args)
         {
-            int DieNumber;
+            int DieNumber, Roll1, Roll2;
             string WantToRoll;
             bool RunProgram = true;
 
@@ -35,9 +35,29 @@ namespace Lab5
                         Console.WriteLine("Thanks! You have rolled:");
                         System.Threading.Thread.Sleep(500);
 
-                        //call RollDice 2x
-                        Console.WriteLine(RollDice(1, DieNumber +1));
-                        Console.WriteLine(RollDice(1, DieNumber + 1));
+                        //call RollDice and print results
+                        Roll1 = RollDice(1, DieNumber +1);
+                        Roll2 = RollDice(1, DieNumber + 1);
+                        Console.WriteLine(Roll1);
+                        Console.WriteLine(Roll2);
+
+                        //messages to print based on special rolls
+                        if(Roll1 == 1 && Roll2 == 1)
+                        {
+                            Console.WriteLine("Snakeyes!");
+                        }
+                        else if (Roll1 == 6 && Roll2 == 6)
+                        {
+                            Console.WriteLine("Boxcars!");
+                        }
+                        else if (Roll1 + Roll2 == 7)
+                        {
+                            Console.WriteLine("Big red!");
+                        }
+                        else if(Roll1 + Roll2 == 3)
+                        {
+                            Console.WriteLine("Ace deuce!");
+                        }
                     }
                     else //if a non-integer is entered
                     {
