@@ -36,28 +36,12 @@ namespace Lab5
                         System.Threading.Thread.Sleep(500);
 
                         //call RollDice and print results
-                        Roll1 = RollDice(1, DieNumber +1);
-                        Roll2 = RollDice(1, DieNumber + 1);
+                        Roll1 = DiceRollerApp.RollDice(1, DieNumber +1);
+                        Roll2 = DiceRollerApp.RollDice(1, DieNumber + 1);
                         Console.WriteLine(Roll1);
                         Console.WriteLine(Roll2);
+                        Console.WriteLine(DiceRollerApp.DisplayMessage(Roll1,Roll2));
 
-                        //messages to print based on special rolls
-                        if(Roll1 == 1 && Roll2 == 1)
-                        {
-                            Console.WriteLine("Snakeyes!");
-                        }
-                        else if (Roll1 == 6 && Roll2 == 6)
-                        {
-                            Console.WriteLine("Boxcars!");
-                        }
-                        else if (Roll1 + Roll2 == 7)
-                        {
-                            Console.WriteLine("Big red!");
-                        }
-                        else if(Roll1 + Roll2 == 3)
-                        {
-                            Console.WriteLine("Ace deuce!");
-                        }
                     }
                     else //if a non-integer is entered
                     {
@@ -104,16 +88,6 @@ namespace Lab5
             }
 
 
-        }
-
-        //initialize the random object. doing this once will allow RollDice to get 2 diff random numbers, since it is not re-initialized
-        private static Random Roll = new Random();
-
-        //method to return 2 random numbers
-        public static int RollDice(int lowNumber, int highNumber)
-        {
-            int Result = Roll.Next(lowNumber, highNumber);
-                return Result;
         }
     }
 }
